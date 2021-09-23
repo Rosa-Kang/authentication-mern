@@ -4,9 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node server.js",
-    "server": "nodemon server.js"
-},
+    "server": "nodemon server.js",
+    "client": "gatsby develop",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -14,6 +17,8 @@
     "body-parser": "^1.19.0",
     "concurrently": "^6.2.1",
     "express": "^4.17.1",
+    "gatsby": "^3.14.0",
+    "gatsby-cli": "^3.14.0",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.7",

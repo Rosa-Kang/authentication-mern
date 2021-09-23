@@ -8,6 +8,7 @@ import {
   InputWrapper,
   MutedLink,
   FieldContainer,
+  FormSuccess,
   FieldError
 } from "./common";
 import { Button } from "../Button";
@@ -50,7 +51,7 @@ export function SignupForm(props) {
     const { confirmPassword, ...data } = values;
 
     const response = await axios
-      .post("http://localhost:5000/api/v1/register", data)
+      .post("http://localhost:5000/api/user/register", data)
       .catch((err) => {
         if (err && err.response) setError(err.response.data.message);
         setSuccess(null);
@@ -80,6 +81,7 @@ export function SignupForm(props) {
   
   return (
     <BoxContainer>
+      <FormSuccess>  {success ? success : ""} </FormSuccess>
       <FormContainer onSubmit={formik.handleSubmit}>
         <InputWrapper>
           <FieldContainer>
